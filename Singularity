@@ -2,7 +2,7 @@ BootStrap: docker
 From: ubuntu:16.04
 
 %runscript
-    echo "This is what happens when you run the container..."
+    echo "This container has no run feature"
 
 %post
 
