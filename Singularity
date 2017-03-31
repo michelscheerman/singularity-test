@@ -23,6 +23,12 @@ Include: yum
 
     cp ring /usr/bin/
 
+    #gina mount points
+    mkdir -p /data/scratch
+    mkdir -p /data/home
+    mkdir /cvmfs
+
+    #cartesius mount points
     mkdir /scratch
     mkdir /scratch-shared
     mkdir /scratch-local
