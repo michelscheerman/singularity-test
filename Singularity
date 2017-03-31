@@ -5,8 +5,8 @@ From: ubuntu:16.04
     echo "This container has no run feature"
 
 %post
-
-    apt-get install update
+    echo "Starting the post actions"
+    apt-get update
     apt-get install libtool
     apt-get install git
     apt-get install automake
@@ -19,7 +19,7 @@ From: ubuntu:16.04
 
     ./autogen.pl
     ./configure --enable-static --disable-shared
-    make -j 8
+    make
     make install
 
     #gina mount points
