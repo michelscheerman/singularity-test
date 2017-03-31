@@ -1,29 +1,26 @@
-BootStrap: yum
-OSVersion: 7
-MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
-Include: yum
+BootStrap: docker
+From: ubuntu:16.04
 
 %runscript
-    echo "Running the container"
+    echo "This is what happens when you run the container..."
 
 %post
-    yum -y groupinstall "Development Tools"
-    yum -y install make
-    yum -y install git
+
+    apt-get install update
+    apt-get install libtool
+    apt-get install git
+    apt-get install automake
+    apt-get install autoconf
+    apt-get install flex
+    apt-get install g++
 
     git clone https://github.com/open-mpi/ompi.git
     cd ompi
 
-    pwd
     ./autogen.pl
-    ./configure --prefix=/usr/local
-    make
+    ./configure --enable-static --disable-shared
+    make -j 8
     make install
-
-    cd /ompi
-    mpicc examples/ring_c.c -o ring
-
-    cp ring /usr/bin/
 
     #gina mount points
     mkdir -p /data/scratch
