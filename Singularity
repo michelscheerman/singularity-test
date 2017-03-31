@@ -7,12 +7,13 @@ From: ubuntu:16.04
 %post
     echo "Starting the post actions"
     apt-get update
-    apt-get install libtool
-    apt-get install git
-    apt-get install automake
-    apt-get install autoconf
-    apt-get install flex
-    apt-get install g++
+    apt-get install -y apt-utils
+    apt-get install -y libtool
+    apt-get install -y git
+    apt-get install -y automake
+    apt-get install -y autoconf
+    apt-get install -y flex
+    apt-get install -y g++
 
     git clone https://github.com/open-mpi/ompi.git
     cd ompi
