@@ -8,6 +8,8 @@ Include: yum
 
 %post
     yum -y groupinstall "Development Tools"
+    yum -y install make
+    yum -y install git
 
     git clone https://github.com/open-mpi/ompi.git
     cd ompi
